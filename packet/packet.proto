@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package packet;
+
+option go_package = "api/client/packet;clipkt";
+
+message Packet {
+  int32 mod = 1; 
+  int32 seq = 2; 
+  bytes bytes = 3;
+}

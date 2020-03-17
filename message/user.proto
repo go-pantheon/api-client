@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package message;
+
+option go_package = "api/client/message;climsg";
+
+message UserProto {
+  string id = 1;  
+}
+
+message CSHandshake {
+  string token = 1; 
+  int64 server_id = 2;
+}
+
+message SCHandshake {
+}
+
+message CSHeartBeat {
+}
+
+message SCHeartBeat {
+}
