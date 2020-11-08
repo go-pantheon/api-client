@@ -2,22 +2,38 @@ syntax = "proto3";
 
 package message;
 
+import "google/api/annotations.proto";
+
 option go_package = "api/client/message;climsg";
 
+// ---------- Data structures ----------
+
+// User data
 message UserProto {
   string id = 1;  
 }
 
-message CSHandshake {
-  string token = 1; 
-  int64 server_id = 2;
+// ---------- Service ----------
+// User service
+service UserTCPService {
+  // Login
+  rpc Login (CSLogin) returns (SCLogin) {
+  };
+
 }
 
-message SCHandshake {
+// ---------- Request Response messages ----------
+
+message CSLogin {
 }
 
-message CSHeartBeat {
-}
+// Response: Login
+message SCLogin {
+  Code code = 1; // Status code
+  enum Code {
+    ErrServer = 0; // Please try again later
+    Success = 1; // Success
+  }
 
-message SCHeartBeat {
+  UserProto user = 2; // User data 
 }

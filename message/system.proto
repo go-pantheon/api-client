@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package message;
+
+import "google/api/annotations.proto";
+
+
+option go_package = "api/client/message;climsg";
+
+// System service
+service SystemTCPService {
+  rpc HeartBeat (CSHeartBeat) returns (SCHeartBeat){
+    option (google.api.http) = {
+      post: "/system/heartbeat"
+      body: "*"
+    };
+  };
+}
+
+// Handshake request
+message CSHandshake {
+  string token = 1; // Token received from account server
+  int64 server_id = 2; // Server ID
+  bytes pub = 3; // Client ECDH public key
+}
+
+// Handshake response
+message SCHandshake {
+  int32 start_index = 1; 
+  bytes pub = 2; // Server ECDH public key
+}
+
+// Heartbeat request
+message CSHeartBeat {
+  int64 client_time = 1;
+}
+
+// Heartbeat response
+message SCHeartBeat {
+  int64 server_time = 1;
+  Code code = 2;
+
+  enum Code {
+    ErrServer = 0; // Please try again later
+    Success = 1; // Success
+    ErrTime = 2; // Timestamp error
+  }
+}
+
+message SCServerUnexpectedErr {
+  int32 mod = 1;
+  int32 seq = 2;
+  string msg = 3;
+}

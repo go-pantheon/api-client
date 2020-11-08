@@ -4,10 +4,12 @@ package sequence;
 
 option go_package = "api/client/sequence;cliseq";
 
-enum UserSeq {
-  UserUnknown = 0;
 
-  // Login
-  Login = 1;
+enum SystemSeq {
+	SystemUnknown = 0;
+
+	Handshake = 1;
+
+	Heartbeat = 2;
 
 }

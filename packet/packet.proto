@@ -5,7 +5,10 @@ package packet;
 option go_package = "api/client/packet;clipkt";
 
 message Packet {
-  int32 mod = 1; 
-  int32 seq = 2; 
-  bytes bytes = 3;
+  int32 ver = 1; 
+  int32 index = 2;
+  int32 mod = 3; 
+  int32 seq = 4; 
+  int64 obj = 5; 
+  bytes data = 6;
 }

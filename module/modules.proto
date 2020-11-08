@@ -4,6 +4,12 @@ package module;
 
 option go_package = "api/client/module;climod";
 
+// Module ID
 enum ModuleID {
-  User = 1;
+  ModuleUnknown = 0;
+
+  System = 1;
+
+  User = 2;
+
 }
