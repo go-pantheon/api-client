@@ -19,25 +19,25 @@ service SystemTCPService {
 
 // Handshake request
 message CSHandshake {
-  string token = 1; // Token received from account server
+  string token = 1; // Token received from account/v1/login
   int64 server_id = 2; // Server ID
   bytes pub = 3; // Client ECDH public key
 }
 
 // Handshake response
 message SCHandshake {
-  int32 start_index = 1; 
+  int32 start_index = 1; // The index number of the next message to send
   bytes pub = 2; // Server ECDH public key
 }
 
 // Heartbeat request
 message CSHeartBeat {
-  int64 client_time = 1;
+  int64 client_time = 1; // Client timestamp, accurate to seconds. Valid if the difference with server time is less than 10s
 }
 
 // Heartbeat response
 message SCHeartBeat {
-  int64 server_time = 1;
+  int64 server_time = 1; // Server timestamp, accurate to seconds
   Code code = 2;
 
   enum Code {
@@ -47,6 +47,7 @@ message SCHeartBeat {
   }
 }
 
+// Server unexpected error. Returned when the server reports an error after the request protocol and the error is unexpected
 message SCServerUnexpectedErr {
   int32 mod = 1;
   int32 seq = 2;

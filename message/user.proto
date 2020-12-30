@@ -11,6 +11,12 @@ option go_package = "api/client/message;climsg";
 // User data
 message UserProto {
   string id = 1;  
+  string name = 2;
+  string avatar = 3;
+  string signature = 4;
+  string email = 5;
+  string phone = 6;
+  string address = 7;
 }
 
 // ---------- Service ----------
@@ -18,13 +24,19 @@ message UserProto {
 service UserTCPService {
   // Login
   rpc Login (CSLogin) returns (SCLogin) {
+    option (google.api.http) = {
+      post: "/user/login"
+      body: "*"
+    };
   };
 
 }
 
 // ---------- Request Response messages ----------
 
+// Request: Login
 message CSLogin {
+  bool reconnect = 1;
 }
 
 // Response: Login
@@ -33,7 +45,12 @@ message SCLogin {
   enum Code {
     ErrServer = 0; // Please try again later
     Success = 1; // Success
+    ErrAccountIdNotExist = 2; // Account does not exist
+    ErrAccountBanned = 3; // Account banned
   }
 
-  UserProto user = 2; // User data 
+  int64 server_time = 2; // Server timestamp, accurate to seconds
+
+  UserProto user = 3; // Player data
+  bool newborn = 4; // Whether the player is newborn
 }
