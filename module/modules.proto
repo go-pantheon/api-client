@@ -8,8 +8,13 @@ option go_package = "api/client/module;climod";
 enum ModuleID {
   ModuleUnknown = 0;
 
+  // System module, like handshake, heartbeat, etc.
   System = 1;
 
-  User = 2;
+  // Dev module, like gm command execution, etc.   
+  Dev = 2;
+
+  // User module, like login, user data sync, some user basic data operations, etc.
+  User = 3;
 
 }

@@ -11,4 +11,7 @@ enum UserSeq {
   // Login
   Login = 1;
 
+  // Push latest user data
+  PushSyncUser = 2;
+
 }

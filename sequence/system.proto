@@ -17,4 +17,6 @@ enum SystemSeq {
 	// Server unexpected error
 	ServerUnexpectedErr = 3;
 
+	// Server trigger logout
+	ServerLogout = 4;
 }

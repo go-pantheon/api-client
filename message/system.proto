@@ -53,3 +53,17 @@ message SCServerUnexpectedErr {
   int32 seq = 2;
   string msg = 3;
 }
+
+// Server triggers user logout
+message SCServerLogout {
+  Code code = 1;
+
+  enum Code {
+    Server = 0; // Unknown reason
+    Waiting = 1; // Please try again later
+    Unauthorized = 2; // Unauthorized
+    ConflictingLogin = 3; // The same user is logged in on another device
+    AdminKickOut = 4; // Kicked out by admin
+    Banned = 5; // Account banned
+  }
+}
