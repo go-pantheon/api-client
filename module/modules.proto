@@ -17,4 +17,8 @@ enum ModuleID {
   // User module, like login, user data sync, some user basic data operations, etc.
   User = 3;
 
+  Storage = 4;
+
+  Hero = 5;
+
 }

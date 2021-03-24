@@ -42,11 +42,12 @@ message SCDevList {
 	repeated DevCmdProto commands = 2; // Dev command list
 }
 
+
 // Request: Execute Dev command
 message CSDevExecute {
 	string mod = 1; // Command module
 	string cmd = 2; // Command name
-	map<string, string> args = 3; // Parameters map<DevCmdArgProto.key, string>
+	map<string, string> args = 3; // Command Parameters: DevCmdArgProto.key -> value with string type
 }
 
 // Response: Execute Dev command
