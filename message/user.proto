@@ -6,6 +6,7 @@ import "google/api/annotations.proto";
 import "message/hero.proto";
 import "message/user_basic.proto";
 import "message/storage.proto";
+import "message/room.proto";
 
 option go_package = "api/client/message;climsg";
 
@@ -16,6 +17,7 @@ message UserProto {
   UserBasicProto basic = 1; // Basic information
   UserStorageProto storage = 2; // Item storage
   UserHeroListProto hero_list = 3; // Hero list
+  UserRoomProto room = 4; // Room
 }
 
 // Recharge parameter

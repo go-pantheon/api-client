@@ -20,5 +20,7 @@ enum ModuleID {
   Storage = 4;
 
   Hero = 5;
+  
+  Room = 6;
 
 }
