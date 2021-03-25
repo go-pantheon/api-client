@@ -12,8 +12,11 @@ enum EquipSeq {
   PushEquipUpdated = 1;
 
   // Wear equipment
-  PutOnEquip = 2;
+  EquipWear = 2;
 
   // Take off equipment
-  PutOffEquip = 3;
+  EquipTakeOff = 3;
+
+  // Upgrade equipment
+  EquipUpgrade = 4;
 }
