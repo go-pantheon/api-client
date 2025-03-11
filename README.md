@@ -14,19 +14,6 @@
 - Distributed system ready
 - Client compatibility package
 
-## Vulcan API Client
-
-**vulcan-api-client** defines the API protocol for game clients using Protocol Buffer IDL, following [Kratos API Definition](https://go-kratos.dev/docs/component/api/) standards.
-
-## Installation
-
-```bash
-Install protocol buffer compiler
-brew install protobuf
-Install buf tool for protocol management
-brew install bufbuild/buf/buf
-```
-
 ## Protocol Structure
 
 ### Module Definition
