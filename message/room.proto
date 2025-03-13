@@ -25,7 +25,7 @@ message RoomProto {
 // Room basic data
 message RoomBasicProto {
   int64 id = 1; // Room ID
-  uint64 room_type = 2; // room type
+  int64 room_type = 2; // room type
   UserBasicProto creator = 3; // Creator
   int64 created_at = 4; // Created at
 }
@@ -160,7 +160,7 @@ message CSRoomDetail {
 }
 
 // Response: Room detail
-message SCRoomDetail {  
+message SCRoomDetail {
   Code code = 1; // Status code
   enum Code {
     ErrServer = 0; // Please try again later
@@ -172,7 +172,7 @@ message SCRoomDetail {
 }
 // Request: Create room
 message CSCreateRoom {
-  uint64 room_type = 1; // Room type
+  int64 room_type = 1; // Room type
 }
 
 // Response: Create room
@@ -224,12 +224,12 @@ message SCAgreeToInviteJoinRoom {
     ErrUserAlreadyInRoom = 5; // User already in room
     ErrUserNotInvited = 6; // User not invited
   }
-} 
+}
 
 // Request: Request to join room
 message CSRequestToJoinRoom {
   int64 room_id = 1; // Room ID
-} 
+}
 
 // Response: Request to join room
 message SCRequestToJoinRoom {
@@ -271,7 +271,7 @@ message CSKickUserFromRoom {
 message SCKickUserFromRoom {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later  
+    ErrServer = 0; // Please try again later
     Success = 1; // Success
     ErrNotInRoom = 2; // Not in room
     ErrUnauthorized = 3; // Unauthorized
@@ -289,7 +289,7 @@ message CSLeaveRoom {
 message SCLeaveRoom {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later  
+    ErrServer = 0; // Please try again later
     Success = 1; // Success
     ErrNotInRoom = 2; // Not in room
     ErrIsCreator = 3; // Is creator
@@ -305,7 +305,7 @@ message CSCloseRoom {
 message SCCloseRoom {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later  
+    ErrServer = 0; // Please try again later
     Success = 1; // Success
     ErrNotInRoom = 2; // Not in room
     ErrUnauthorized = 3; // Unauthorized

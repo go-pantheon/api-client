@@ -44,7 +44,7 @@ message SCHeroLevelUpgrade {
     ErrCostNotEnough = 4; // Cost not enough
   }
   HeroProto hero = 2; // Hero information
-  map<int64, uint64> costs = 3; // Consumed materials
+  map<int64, int64> costs = 3; // Consumed materials
 }
 
 // ---------------- Data structures --------------
@@ -57,7 +57,7 @@ message UserHeroListProto {
 // Hero
 message HeroProto {
   int64 id = 1; // Hero ID
-  uint64 data_id = 2; // Hero DataID
-  uint64 level = 3; // Hero level
+  int64 data_id = 2; // Hero DataID
+  int64 level = 3; // Hero level
   repeated int64 equips = 4; // Equip IDs
 }

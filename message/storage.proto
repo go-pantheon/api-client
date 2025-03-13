@@ -25,7 +25,7 @@ service StorageTCPService {
 
 // Push: Item has been updated
 message SCPushItemUpdated {
-  map<int64, uint64> items = 1; // Items with changed amounts. item DataID -> current amount. value is 0 means the item has been deleted
+  map<int64, int64> items = 1; // Items with changed amounts. item DataID -> current amount. value is 0 means the item has been deleted
 }
 
 // ---------- Request messages ----------
@@ -45,14 +45,14 @@ message SCUsePack {
     ErrItemLimit = 3; // Usage restricted
   }
   int64 id = 2; // Item ID
-  map<int64, uint64> changed_items = 3; // Items with changed amounts. item DataID -> current amount. value is 0 means the item has been deleted
+  map<int64, int64> changed_items = 3; // Items with changed amounts. item DataID -> current amount. value is 0 means the item has been deleted
 }
 
 // ---------- Data structures ----------
 
 // Storage
 message UserStorageProto {
-  map<int64, uint64> amounts = 1; // Numeric items. item DataID -> amount
+  map<int64, int64> amounts = 1; // Numeric items. item DataID -> amount
   map<int64, ItemPackProto> packs = 2; // Packs. pack DataID -> amount
   map<int64, ItemRecoverableProto> recoverable_items = 3; // Recoverable items. item DataID -> properties
 }
@@ -65,8 +65,8 @@ message ItemPackProto {
 
 // Recoverable numeric properties
 message ItemRecoverableProto {
-  uint64 count = 1; // Current amount
-  uint64 max = 2; // Maximum
+  int64 count = 1; // Current amount
+  int64 max = 2; // Maximum
   float recover_per_second = 3; // Recovery speed, n/s
-  int64 updated_at = 4; // Last updated timestamp, unit: second
+  int64 updated_at = 4; // Last updated Time (Unix timestamp)
 }

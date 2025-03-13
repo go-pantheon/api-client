@@ -48,7 +48,7 @@ message CSEquipWear {
   int64 hero_id = 2; // Hero ID
 }
 
-// Response: Wear equipment 
+// Response: Wear equipment
 message SCEquipWear {
   Code code = 1;
   enum Code {
@@ -94,7 +94,7 @@ message SCEquipUpgrade {
     ErrCostNotEnough = 4; // Cost not enough
   }
   EquipProto equip = 2;     // Upgraded equipment
-  map<int64, uint64> costs = 3; // Consumed materials
+  map<int64, int64> costs = 3; // Consumed materials
 }
 
 // ---------- Data structures ----------
@@ -107,8 +107,8 @@ message UserEquipListProto {
 // Equipment
 message EquipProto {
   int64 id = 1;         // Equipment ID
-  uint64 data_id = 2;   // Equipment DataID
-  uint64 level = 3;     // Current level
+  int64 data_id = 2;   // Equipment DataID
+  int64 level = 3;     // Current level
   bool wearing = 4;     // Wearing status
   int64 hero_id = 5;    // Worn by hero ID (0 means not worn)
 }
