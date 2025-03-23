@@ -35,7 +35,7 @@ service EquipTCPService {
 
 // ---------- Push messages ----------
 
-// Push: Equipment updated
+// @Push: Equipment updated
 message SCPushEquipUpdated {
   repeated EquipProto equips = 1; // Updated equipment list
 }
@@ -52,7 +52,7 @@ message CSEquipWear {
 message SCEquipWear {
   Code code = 1;
   enum Code {
-    ErrServer = 0;     // Please try again later
+    ErrUnspecified = 0;     // Please try again later
     Success = 1;       // Success
     ErrEquipNotExist = 2;  // Equipment does not exist
     ErrHeroNotExist = 3;   // Hero does not exist
@@ -70,7 +70,7 @@ message CSEquipTakeOff {
 message SCEquipTakeOff {
   Code code = 1;
   enum Code {
-    ErrServer = 0;     // Please try again later
+    ErrUnspecified = 0;     // Please try again later
     Success = 1;       // Success
     ErrEquipNotExist = 2;  // Equipment does not exist
     ErrNotWearing = 3; // Not wearing
@@ -87,7 +87,7 @@ message CSEquipUpgrade {
 message SCEquipUpgrade {
   Code code = 1;
   enum Code {
-    ErrServer = 0;        // Please try again later
+    ErrUnspecified = 0;        // Please try again later
     Success = 1;          // Success
     ErrEquipNotExist = 2; // Equipment does not exist
     ErrMaxLevel = 3;      // Already max level

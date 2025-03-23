@@ -6,7 +6,7 @@ option go_package = "api/client/sequence;cliseq";
 
 // Room module operation number
 enum RoomSeq {
-	RoomUnknown = 0;
+	RoomUnspecified = 0;
 
 	// Room list
 	RoomList = 1;
@@ -29,7 +29,7 @@ enum RoomSeq {
 	// Approve request to join room
 	ApproveRequestToJoinRoom = 7;
 
-	// Push: joined room
+	// @Push: joined room
 	PushJoinedRoom = 8;	
 
 	// Kick user from room
@@ -41,6 +41,6 @@ enum RoomSeq {
 	// Leave room
 	LeaveRoom = 11;
 
-	// Push: Removed from room. Leave, be kicked or room closed
+	// @Push: Removed from room. Leave, be kicked or room closed
 	PushRemovedFromRoom = 12;
 }

@@ -123,13 +123,13 @@ service RoomTCPService {
 
 // ---------- Push messages ----------
 
-// Push: Joined room
+// @Push: Joined room
 message SCPushJoinedRoom {
   int64 room_id = 1; // Room ID
   RoomMemberProto member = 2; // Room member data
 }
 
-// Push: Removed from room. Leave, be kicked or room closed
+// @Push: Removed from room. Leave, be kicked or room closed
 message SCPushRemovedFromRoom {
   int64 room_id = 1; // Room ID
   RoomMemberProto member = 2; // Room member data
@@ -147,7 +147,7 @@ message CSRoomList {
 message SCRoomList {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
   }
 
@@ -163,7 +163,7 @@ message CSRoomDetail {
 message SCRoomDetail {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
     ErrRoomNotFound = 2; // Room not found
   }
@@ -179,7 +179,7 @@ message CSCreateRoom {
 message SCCreateRoom {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
     ErrRoomTypeInvalid = 2; // Room type invalid
     ErrAlreadyInRoom = 3; // Already in room
@@ -197,7 +197,7 @@ message CSInviteToJoinRoom {
 message SCInviteToJoinRoom {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
     ErrNotInRoom = 2; // Not in room
     ErrUnauthorized = 3; // Unauthorized
@@ -216,7 +216,7 @@ message CSAgreeToInviteJoinRoom {
 message SCAgreeToInviteJoinRoom {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
     ErrNotInRoom = 2; // Not in room
     ErrUnauthorized = 3; // Unauthorized
@@ -235,7 +235,7 @@ message CSRequestToJoinRoom {
 message SCRequestToJoinRoom {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
     ErrAlreadyInRoom = 2; // Already in room
     ErrRoomNotFound = 3; // Room not found
@@ -252,7 +252,7 @@ message CSApproveRequestToJoinRoom {
 message SCApproveRequestToJoinRoom {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
     ErrNotInRoom = 2; // Not in room
     ErrUnauthorized = 3; // Unauthorized
@@ -271,7 +271,7 @@ message CSKickUserFromRoom {
 message SCKickUserFromRoom {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
     ErrNotInRoom = 2; // Not in room
     ErrUnauthorized = 3; // Unauthorized
@@ -289,7 +289,7 @@ message CSLeaveRoom {
 message SCLeaveRoom {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
     ErrNotInRoom = 2; // Not in room
     ErrIsCreator = 3; // Is creator
@@ -305,7 +305,7 @@ message CSCloseRoom {
 message SCCloseRoom {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
     ErrNotInRoom = 2; // Not in room
     ErrUnauthorized = 3; // Unauthorized

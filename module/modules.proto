@@ -6,7 +6,7 @@ option go_package = "api/client/module;climod";
 
 // Module ID
 enum ModuleID {
-  ModuleUnknown = 0;
+  ModuleUnspecified = 0;
 
   // System module, like handshake, heartbeat, etc.
   System = 1;

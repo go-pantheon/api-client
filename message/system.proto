@@ -9,7 +9,7 @@ option go_package = "api/client/message;climsg";
 
 // System service
 service SystemTCPService {
-  rpc HeartBeat (CSHeartBeat) returns (SCHeartBeat){
+  rpc Heartbeat (CSHeartbeat) returns (SCHeartbeat){
     option (google.api.http) = {
       post: "/system/heartbeat"
       body: "*"
@@ -31,12 +31,12 @@ message SCHandshake {
 }
 
 // Heartbeat request
-message CSHeartBeat {
+message CSHeartbeat {
   int64 client_time = 1; // Client timestamp, accurate to seconds. Valid if the difference with server time is less than 10s
 }
 
 // Heartbeat response
-message SCHeartBeat {
+message SCHeartbeat {
   int64 server_time = 1; // Server timestamp, accurate to seconds
   Code code = 2;
 

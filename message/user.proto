@@ -58,7 +58,7 @@ service UserTCPService {
 
 // ---------- Push messages ----------
 
-// Push: Latest user data
+// @Push: Latest user data
 // The client receives the data and updates its own data to avoid data inconsistency between the client and the server when GM modifies data or the server restarts
 message SCPushSyncUser {
   UserProto user = 1; // Player data
@@ -75,7 +75,7 @@ message CSLogin {
 message SCLogin {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
     ErrAccountIdNotExist = 2; // Account does not exist
     ErrAccountBanned = 3; // Account banned
@@ -96,7 +96,7 @@ message CSUpdateName {
 message SCUpdateName {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
     ErrNameIllegal = 2; // Name is illegal
     ErrNameNotChanged = 3; // Name not changed
@@ -113,7 +113,7 @@ message CSSetGender {
 message SCSetGender {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
     ErrGenderIllegal = 2; // Gender is illegal
     ErrGenderSet = 3; // Gender has been set

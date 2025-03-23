@@ -35,7 +35,7 @@ message CSDevList {
 message SCDevList {
 	Code code = 1;
 	enum Code {
-		ErrServer = 0; // Please try again later
+		ErrUnspecified = 0; // Please try again later
 		Success = 1; // Success
 	}
 
@@ -54,7 +54,7 @@ message CSDevExecute {
 message SCDevExecute {
 	Code code = 1;
 	enum Code {
-		ErrServer = 0; // Please try again later
+		ErrUnspecified = 0; // Please try again later
 		Success = 1; // Success
 		ErrModNotExist = 2; // Command module does not exist
 		ErrNameNotExist = 3; // Command name does not exist

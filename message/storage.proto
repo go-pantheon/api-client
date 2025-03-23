@@ -23,7 +23,7 @@ service StorageTCPService {
 
 // ---------- Push messages ----------
 
-// Push: Item has been updated
+// @Push: Item has been updated
 message SCPushItemUpdated {
   map<int64, int64> items = 1; // Items with changed amounts. item DataID -> current amount. value is 0 means the item has been deleted
 }
@@ -39,7 +39,7 @@ message CSUsePack {
 message SCUsePack {
   Code code = 1;
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
     ErrItemNotExist = 2; // Item does not exist
     ErrItemLimit = 3; // Usage restricted

@@ -21,7 +21,7 @@ service HeroTCPService {
 
 // ---------------- Push messages --------------
 
-// Push: New Hero unlocked
+// @Push: New Hero unlocked
 message SCPushHeroUnlock {
   repeated HeroProto heroes = 1;
 }
@@ -37,7 +37,7 @@ message CSHeroLevelUpgrade {
 message SCHeroLevelUpgrade {
   Code code = 1; // Status code
   enum Code {
-    ErrServer = 0; // Please try again later
+    ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
     ErrRoleNotExist = 2; // Hero does not exist
     ErrMaxLevel = 3; // Already max level
