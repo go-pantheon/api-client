@@ -4,11 +4,10 @@ package message;
 
 import "google/api/annotations.proto";
 
-
 option go_package = "api/client/message;climsg";
 
 // System service
-service SystemTCPService {
+service SystemService {
   rpc Heartbeat (CSHeartbeat) returns (SCHeartbeat){
     option (google.api.http) = {
       post: "/system/heartbeat"

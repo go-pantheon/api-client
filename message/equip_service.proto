@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+package message;
+
+import "google/api/annotations.proto";
+import "message/equip.proto";
+
+option go_package = "api/client/message;climsg";
+
+// Equipment service
+service EquipService {
+  // Wear equipment
+  rpc EquipWear (CSEquipWear) returns (SCEquipWear) {
+    option (google.api.http) = {
+      post: "/equip/wear"
+      body: "*"
+    };
+  };
+
+  // Take off equipment
+  rpc EquipTakeOff (CSEquipTakeOff) returns (SCEquipTakeOff) {
+    option (google.api.http) = {
+      post: "/equip/takeoff"
+      body: "*"
+    };
+  };
+
+  // Equipment upgrade
+  rpc EquipUpgrade (CSEquipUpgrade) returns (SCEquipUpgrade) {
+    option (google.api.http) = {
+      post: "/equip/upgrade"
+      body: "*"
+    };
+  };
+}
+
+// ---------- Push messages ----------
+
+// @Push: Equipment updated
+message SCPushEquipUpdated {
+  repeated EquipProto equips = 1; // Updated equipment list
+}
+
+// ---------- Request Response messages ----------
+
+// Request: Wear equipment
+message CSEquipWear {
+  int64 equip_id = 1; // Equipment ID
+  int64 hero_id = 2; // Hero ID
+}
+
+// Response: Wear equipment
+message SCEquipWear {
+  Code code = 1;
+  enum Code {
+    ErrUnspecified = 0;     // Please try again later
+    Success = 1;       // Success
+    ErrEquipNotExist = 2;  // Equipment does not exist
+    ErrHeroNotExist = 3;   // Hero does not exist
+    ErrAlreadyWorn = 4;    // Already worn
+  }
+  int64 replaced_equip_id = 2; // Taken off equipment ID
+}
+
+// Request: Take off equipment
+message CSEquipTakeOff {
+  int64 equip_id = 1; // Equipment ID
+}
+
+// Response: Take off equipment
+message SCEquipTakeOff {
+  Code code = 1;
+  enum Code {
+    ErrUnspecified = 0;     // Please try again later
+    Success = 1;       // Success
+    ErrEquipNotExist = 2;  // Equipment does not exist
+    ErrNotWearing = 3; // Not wearing
+  }
+  EquipProto equip = 2;    // Updated equipment
+}
+
+// Request: Equipment upgrade
+message CSEquipUpgrade {
+  int64 equip_id = 1; // Equipment ID
+}
+
+// Response: Equipment upgrade
+message SCEquipUpgrade {
+  Code code = 1;
+  enum Code {
+    ErrUnspecified = 0;        // Please try again later
+    Success = 1;          // Success
+    ErrEquipNotExist = 2; // Equipment does not exist
+    ErrMaxLevel = 3;      // Already max level
+    ErrCostNotEnough = 4; // Cost not enough
+  }
+  EquipProto equip = 2;     // Upgraded equipment
+  map<int64, int64> costs = 3; // Consumed materials
+}

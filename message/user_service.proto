@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package message;
+
+import "google/api/annotations.proto";
+import "message/user.proto";
+
+option go_package = "api/client/message;climsg";
+
+// User service
+service UserService {
+  // Login
+  rpc Login (CSLogin) returns (SCLogin) {
+    option (google.api.http) = {
+      post: "/user/login"
+      body: "*"
+    };
+  };
+
+  // Update name
+  rpc UpdateName (CSUpdateName) returns (SCUpdateName) {
+    option (google.api.http) = {
+      post: "/user/name/update"
+      body: "*"
+    };
+  };
+
+  // Set gender
+  rpc SetGender (CSSetGender) returns (SCSetGender) {
+    option (google.api.http) = {
+      post: "/user/gender/set"
+      body: "*"
+    };
+  };
+
+}
+
+// ---------- Push messages ----------
+
+// @Push: Latest user data
+// The client receives the data and updates its own data to avoid data inconsistency between the client and the server when GM modifies data or the server restarts
+message SCPushSyncUser {
+  UserProto user = 1; // Player data
+}
+
+// ---------- Request Response messages ----------
+
+// Request: Login
+message CSLogin {
+  bool reconnect = 1; // Whether it is a reconnection. When the client discovers that the network is disconnected during the online period and executes automatic reconnection, it is true.
+}
+
+// Response: Login
+message SCLogin {
+  Code code = 1; // Status code
+  enum Code {
+    ErrUnspecified = 0; // Please try again later
+    Success = 1; // Success
+    ErrAccountIdNotExist = 2; // Account does not exist
+    ErrAccountBanned = 3; // Account banned
+  }
+
+  int64 server_time = 2; // Server timestamp, accurate to seconds
+
+  UserProto user = 3; // Player data
+  bool newborn = 4; // Whether the player is newborn
+}
+
+// Request: Update name
+message CSUpdateName {
+  string name = 1; // Name
+}
+
+// Response: Update name
+message SCUpdateName {
+  Code code = 1; // Status code
+  enum Code {
+    ErrUnspecified = 0; // Please try again later
+    Success = 1; // Success
+    ErrNameIllegal = 2; // Name is illegal
+    ErrNameNotChanged = 3; // Name not changed
+  }
+  bool is_illegal = 2;
+}
+
+// Request: Set gender
+message CSSetGender {
+  int32 gender = 1; // Gender. Same as ActorProto.gender
+}
+
+// Response: Set gender
+message SCSetGender {
+  Code code = 1; // Status code
+  enum Code {
+    ErrUnspecified = 0; // Please try again later
+    Success = 1; // Success
+    ErrGenderIllegal = 2; // Gender is illegal
+    ErrGenderSet = 3; // Gender has been set
+  }
+}
