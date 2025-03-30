@@ -38,7 +38,7 @@ message SCHeroLevelUpgrade {
   enum Code {
     ErrUnspecified = 0; // Please try again later
     Success = 1; // Success
-    ErrRoleNotExist = 2; // Hero does not exist
+    ErrHeroNotExist = 2; // Hero does not exist
     ErrMaxLevel = 3; // Already max level
     ErrCostNotEnough = 4; // Cost not enough
   }

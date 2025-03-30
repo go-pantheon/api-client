@@ -6,21 +6,15 @@ option go_package = "api/client/message;climsg";
 
 // Storage
 message UserStorageProto {
-  map<int64, int64> amounts = 1; // Numeric items. item DataID -> amount
-  map<int64, ItemPackProto> packs = 2; // Packs. pack DataID -> amount
-  map<int64, ItemRecoverableProto> recoverable_items = 3; // Recoverable items. item DataID -> properties
+  map<int64, uint64> items = 1; // Items. item DataID -> amount
+  map<int64, uint64> packs = 2; // Packs. pack DataID -> amount
+  map<int64, ItemRecoveryInfoProto> recovery_infos = 3; // Recoverable item infos. item DataID -> properties
 }
 
-// Pack structure
-message ItemPackProto {
-  int64 data_id = 1; // Pack DataID
-  int64 received_at = 2; // Received time
-}
-
-// Recoverable numeric properties
-message ItemRecoverableProto {
-  int64 count = 1; // Current amount
-  int64 max = 2; // Maximum
-  float recover_per_second = 3; // Recovery speed, n/s
-  int64 updated_at = 4; // Last updated Time (Unix timestamp)
+// Item Recovery info
+message ItemRecoveryInfoProto {
+  int64 data_id = 1; // Item DataID
+  int64 max = 2; // Max Amount
+  float recover_per_sec = 3; // Recover Per Second
+  int64 updated_at = 4; // Last updated time (Unix timestamp)
 }
