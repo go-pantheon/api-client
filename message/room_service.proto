@@ -92,13 +92,13 @@ service RoomService {
 
 // ---------- Push messages ----------
 
-// @Push: Joined room
+// @push Joined room
 message SCPushJoinedRoom {
   int64 room_id = 1; // Room ID
   RoomMemberProto member = 2; // Room member data
 }
 
-// @Push: Removed from room. Leave, be kicked or room closed
+// @push Removed from room. Leave, be kicked or room closed
 message SCPushRemovedFromRoom {
   int64 room_id = 1; // Room ID
   RoomMemberProto member = 2; // Room member data

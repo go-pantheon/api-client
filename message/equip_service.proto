@@ -36,7 +36,7 @@ service EquipService {
 
 // ---------- Push messages ----------
 
-// @Push: Equipment updated
+// @push Equipment updated
 message SCPushEquipUpdated {
   repeated EquipProto equips = 1; // Updated equipment list
 }

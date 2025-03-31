@@ -20,7 +20,7 @@ service HeroService {
 
 // ---------------- Push messages --------------
 
-// @Push: New Hero unlocked
+// @push New Hero unlocked
 message SCPushHeroUnlock {
   repeated HeroProto heroes = 1;
 }
