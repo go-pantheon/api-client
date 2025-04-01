@@ -8,7 +8,7 @@ option go_package = "api/client/sequence;cliseq";
 enum HeroSeq {
   HeroUnspecified = 0;
 
-  // @Push: Hero unlock
+  // @push Hero unlock
   PushHeroUnlock = 1;
 
   // Hero level upgrade

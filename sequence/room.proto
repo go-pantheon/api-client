@@ -11,7 +11,7 @@ enum RoomSeq {
 	// Room list
 	RoomList = 1;
 
-	// Room detail	
+	// Room detail
 	RoomDetail = 2;
 
 	// Create room
@@ -21,7 +21,7 @@ enum RoomSeq {
 	InviteToJoinRoom = 4;
 
 	// Agree to invite to join room
-	AgreeToInviteJoinRoom = 5;	
+	AgreeToInviteJoinRoom = 5;
 
 	// Request to join room
 	RequestToJoinRoom = 6;
@@ -29,8 +29,8 @@ enum RoomSeq {
 	// Approve request to join room
 	ApproveRequestToJoinRoom = 7;
 
-	// @Push: joined room
-	PushJoinedRoom = 8;	
+	// @push joined room
+	PushJoinedRoom = 8;
 
 	// Kick user from room
 	KickUserFromRoom = 9;
@@ -41,6 +41,6 @@ enum RoomSeq {
 	// Leave room
 	LeaveRoom = 11;
 
-	// @Push: Removed from room. Leave, be kicked or room closed
+	// @push Removed from room. Leave, be kicked or room closed
 	PushRemovedFromRoom = 12;
 }

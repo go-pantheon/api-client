@@ -14,9 +14,9 @@ enum SystemSeq {
  	// Heartbeat
 	Heartbeat = 2;
 
-	// @Push: Server unexpected error
+	// @push Server unexpected error
 	ServerUnexpectedErr = 3;
 
-	// @Push: Server trigger logout
+	// @push Server trigger logout
 	ServerLogout = 4;
 }

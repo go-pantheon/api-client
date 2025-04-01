@@ -8,7 +8,7 @@ option go_package = "api/client/sequence;cliseq";
 enum EquipSeq {
   EquipUnspecified = 0;
 
-  // @Push equipment updated
+  // @push equipment updated
   PushEquipUpdated = 1;
 
   // Wear equipment
