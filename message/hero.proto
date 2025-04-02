@@ -13,6 +13,7 @@ message UserHeroListProto {
 message HeroProto {
   int64 id = 1; // Hero ID
   int64 data_id = 2; // Hero DataID
-  uint64 level = 3; // Hero level
-  repeated int64 equips = 4; // Equip IDs
+  int64 level = 3; // Hero level
+  map<int64, int64> skills = 4; // Skill ID -> Skill Level
+  repeated int64 equips = 5; // Equip IDs
 }
