@@ -54,7 +54,7 @@ message SCEquipWear {
   Code code = 1;
   enum Code {
     ErrUnspecified = 0;     // Please try again later
-    Success = 1;       // Success
+    Succeeded = 1;       // Succeeded
     ErrEquipNotExist = 2;  // Equipment does not exist
     ErrHeroNotExist = 3;   // Hero does not exist
     ErrAlreadyWorn = 4;    // Already worn
@@ -72,7 +72,7 @@ message SCEquipTakeOff {
   Code code = 1;
   enum Code {
     ErrUnspecified = 0;     // Please try again later
-    Success = 1;       // Success
+    Succeeded = 1;       // Succeeded
     ErrEquipNotExist = 2;  // Equipment does not exist
     ErrNotWearing = 3; // Not wearing
   }
@@ -89,7 +89,7 @@ message SCEquipUpgrade {
   Code code = 1;
   enum Code {
     ErrUnspecified = 0;        // Please try again later
-    Success = 1;          // Success
+    Succeeded = 1;          // Succeeded
     ErrEquipNotExist = 2; // Equipment does not exist
     ErrMaxLevel = 3;      // Already max level
     ErrCostNotEnough = 4; // Cost not enough

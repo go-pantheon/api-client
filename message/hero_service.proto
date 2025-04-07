@@ -37,7 +37,7 @@ message SCHeroLevelUpgrade {
   Code code = 1; // Status code
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrHeroNotExist = 2; // Hero does not exist
     ErrMaxLevel = 3; // Already max level
     ErrCostNotEnough = 4; // Cost not enough

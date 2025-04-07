@@ -3,7 +3,6 @@ syntax = "proto3";
 package message;
 
 import "google/api/annotations.proto";
-import "message/storage.proto";
 
 option go_package = "api/client/message;climsg";
 
@@ -41,7 +40,7 @@ message SCUsePack {
   Code code = 1;
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrPackNotExist = 2; // Pack does not exist
     ErrPackLimit = 3; // Usage restricted
   }

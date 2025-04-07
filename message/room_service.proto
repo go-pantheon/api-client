@@ -117,7 +117,7 @@ message SCRoomList {
   Code code = 1; // Status code
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
   }
 
   repeated RoomBasicProto rooms = 2; // Room basic data list
@@ -133,7 +133,7 @@ message SCRoomDetail {
   Code code = 1; // Status code
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrRoomNotFound = 2; // Room not found
   }
 
@@ -149,7 +149,7 @@ message SCCreateRoom {
   Code code = 1; // Status code
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrRoomTypeInvalid = 2; // Room type invalid
     ErrAlreadyInRoom = 3; // Already in room
   }
@@ -167,7 +167,7 @@ message SCInviteToJoinRoom {
   Code code = 1; // Status code
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrNotInRoom = 2; // Not in room
     ErrUnauthorized = 3; // Unauthorized
     ErrUserNotFound = 4; // User not found
@@ -186,7 +186,7 @@ message SCAgreeToInviteJoinRoom {
   Code code = 1; // Status code
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrNotInRoom = 2; // Not in room
     ErrUnauthorized = 3; // Unauthorized
     ErrUserNotFound = 4; // User not found
@@ -205,7 +205,7 @@ message SCRequestToJoinRoom {
   Code code = 1; // Status code
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrAlreadyInRoom = 2; // Already in room
     ErrRoomNotFound = 3; // Room not found
     ErrAlreadyRequested = 4; // Already requested
@@ -222,7 +222,7 @@ message SCApproveRequestToJoinRoom {
   Code code = 1; // Status code
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrNotInRoom = 2; // Not in room
     ErrUnauthorized = 3; // Unauthorized
     ErrUserNotFound = 4; // User not found
@@ -241,7 +241,7 @@ message SCKickUserFromRoom {
   Code code = 1; // Status code
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrNotInRoom = 2; // Not in room
     ErrUnauthorized = 3; // Unauthorized
     ErrUserNotFound = 4; // User not found
@@ -259,7 +259,7 @@ message SCLeaveRoom {
   Code code = 1; // Status code
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrNotInRoom = 2; // Not in room
     ErrIsCreator = 3; // Is creator
   }
@@ -275,7 +275,7 @@ message SCCloseRoom {
   Code code = 1; // Status code
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrNotInRoom = 2; // Not in room
     ErrUnauthorized = 3; // Unauthorized
   }

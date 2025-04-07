@@ -41,7 +41,7 @@ message SCHeartbeat {
 
   enum Code {
     ErrServer = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrTime = 2; // Timestamp error
   }
 }

@@ -55,7 +55,7 @@ message SCLogin {
   Code code = 1; // Status code
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrAccountIdNotExist = 2; // Account does not exist
     ErrAccountBanned = 3; // Account banned
   }
@@ -76,7 +76,7 @@ message SCUpdateName {
   Code code = 1; // Status code
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrNameIllegal = 2; // Name is illegal
     ErrNameNotChanged = 3; // Name not changed
   }
@@ -93,7 +93,7 @@ message SCSetGender {
   Code code = 1; // Status code
   enum Code {
     ErrUnspecified = 0; // Please try again later
-    Success = 1; // Success
+    Succeeded = 1; // Succeeded
     ErrGenderIllegal = 2; // Gender is illegal
     ErrGenderSet = 3; // Gender has been set
   }

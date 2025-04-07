@@ -38,7 +38,7 @@ message SCDevList {
 	Code code = 1;
 	enum Code {
 		ErrUnspecified = 0; // Please try again later
-		Success = 1; // Success
+		Succeeded = 1; // Succeeded
 	}
 
 	repeated DevCmdProto commands = 2; // Dev command list
@@ -57,7 +57,7 @@ message SCDevExecute {
 	Code code = 1;
 	enum Code {
 		ErrUnspecified = 0; // Please try again later
-		Success = 1; // Success
+		Succeeded = 1; // Succeeded
 		ErrModNotExist = 2; // Command module does not exist
 		ErrNameNotExist = 3; // Command name does not exist
 		ErrArgNotExist = 4; // Parameter does not exist
