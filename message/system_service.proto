@@ -18,15 +18,21 @@ service SystemService {
 
 // Handshake request
 message CSHandshake {
-  string token = 1; // Token received from account/v1/login
-  int64 server_id = 2; // Server ID
-  bytes pub = 3; // Client ECDH public key
+  bytes pub = 1; // Client ECDH public key
+  bytes sign = 2; // Client ECDH public key signature
+  string token = 3; // Token received from account/v1/login
+  int64 server_id = 4; // Server ID
+  int64 timestamp = 5; // Timestamp
+  int32 cert_version = 6; // Signature version
 }
 
 // Handshake response
 message SCHandshake {
-  int32 start_index = 1; // The index number of the next message to send
-  bytes pub = 2; // Server ECDH public key
+  bytes pub = 1; // Server ECDH public key
+  bytes sign = 2; // Server ECDH public key signature
+  int64 timestamp = 3; // Timestamp
+  int32 cert_version = 4; // Signature version
+  int32 start_index = 5; // The index number of the next message to send
 }
 
 // Heartbeat request
